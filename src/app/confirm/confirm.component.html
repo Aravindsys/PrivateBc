@@ -1,0 +1,44 @@
+<div class="center">
+    <h3>Preview</h3>
+<div class="margin-right" style="border: 2px solid black;">
+    
+    <div *ngIf="bcConfig == null; else elseBlock">No Block chain Name assigned</div>
+   <ng-template #elseBlock><h2>{{bcConfig.name}}</h2>
+   
+    <div>Admin User: {{bcConfig.admin_username}}</div>
+    <div>Organisation: {{bcConfig.organisation}}</div>   
+</ng-template>
+</div>
+<div  class="margin-right margin-top" style="border: 2px solid black;">
+    <div *ngIf="latestBlock == null; else sender">No Blocks created to this block chain</div>
+   <ng-template #sender>
+       <div>Sender: 
+           {{latestBlock.sender}}
+       </div>
+       <div>Receiver: 
+        {{latestBlock.receiver}}
+    </div>
+    <div>Amount: 
+        {{latestBlock.sending}}
+    </div>
+    <div>Additional raw data: 
+        {{latestBlock.raw_data}}
+    </div>
+    <div>Golden nonce: 
+        {{latestBlock.golden_nonce}}
+    </div>
+    <div>Previous hash: 
+        <span *ngIf="latestBlock.previous_hash == ''; else previousHash">Genesis Block so no previous hash</span>
+        <ng-template #previousHash>
+            {{latestBlock.previous_hash}}
+        </ng-template>
+    </div>
+    <div>Block hash: 
+        {{latestBlock.hash}}
+    </div>
+   </ng-template>
+</div>
+<button style="margin-top: 50px; background-color: var(--button-color);" mat-raised-button routerLink="/block">Modify</button>
+
+<button style="margin-left: 50px; margin-top: 50px; background-color: var(--button-color);" mat-raised-button type="submit" (click)="submit();">Mine Confirm</button>
+</div>
