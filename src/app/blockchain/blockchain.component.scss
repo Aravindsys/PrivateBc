@@ -1,0 +1,27 @@
+.center{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    width: 500px;
+    margin-top: 15px;
+}
+
+@media only screen and (min-width: 1076px){
+    .chain{
+        margin-left: 250px;
+    }
+    .blocks{
+        width: 700px;
+    }
+}
+@media only screen and (min-width: 300px){
+    .chain{
+        margin-left: 130px;
+    }
+}

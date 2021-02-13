@@ -1,0 +1,51 @@
+<div class="center">
+    <div *ngIf="bcConfigs == null; else elseBlock">No Block chain Name assigned</div>
+   <ng-template #elseBlock><h2>{{bcConfigs.name}}</h2></ng-template>
+   <h4>{{header}}</h4> 
+   <form [formGroup]="block" novalidate (ngSubmit)="submit()">
+        <table>    
+          <tr>   
+          <td><label>Sender:</label>
+              </td>
+              <td>
+          <mat-form-field appearance="legacy">
+            <mat-label>Sender of the asset/amount</mat-label>
+            <input formControlName="sender" matInput placeholder="Sender">
+          </mat-form-field>
+          </td>
+          </tr>
+        <tr>     
+          <td><label>Receiver: </label>
+              </td>
+              <td>  
+          <mat-form-field appearance="legacy">
+            <mat-label>Receiver of the asset/amount</mat-label>
+            <input formControlName="receiver" matInput placeholder="Receiver">
+          </mat-form-field>
+          </td>
+      </tr>
+        <tr>  
+          <td> <label>Amount/Asset</label>
+              </td>
+              <td>   
+          <mat-form-field appearance="legacy">
+            <mat-label>Your transactional amount</mat-label>
+            <input formControlName="sending" matInput placeholder="Amount of the asset">
+          </mat-form-field>
+          </td>
+      </tr>
+        <tr>  
+          <td>  <label>Any additional raw data</label></td>
+         <td> <mat-form-field appearance="legacy">
+            <mat-label>Any additional raw data</mat-label>
+            <input formControlName="raw_data" matInput placeholder="Any raw data">
+          </mat-form-field>
+          </td>
+        </tr>
+        <tr><td></td><td>   
+          <button type="submit" mat-raised-button style="background-color: var(--button-color);">Add block</button>
+        </td>
+        </tr>
+        </table>
+        </form>
+</div>

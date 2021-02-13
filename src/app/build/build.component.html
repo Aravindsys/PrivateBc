@@ -1,0 +1,75 @@
+
+<div class="center">  
+
+<form [formGroup]="bcConfig" novalidate (ngSubmit)="submit()">
+  <table>    
+    <tr>   
+    <td><label>Name:</label>
+        </td>
+        <td>
+    <mat-form-field appearance="legacy">
+      <mat-label>Your Unique Block chain Name</mat-label>
+      <input formControlName="name" matInput placeholder="Block chain Name">
+    </mat-form-field>
+    </td>
+    </tr>
+  <tr>     
+    <td><label>Admin username: </label>
+        </td>
+        <td>  
+    <mat-form-field appearance="legacy">
+      <mat-label>Primary User</mat-label>
+      <input formControlName="admin_username" matInput placeholder="Admin username">
+    </mat-form-field>
+    </td>
+</tr>
+  <tr>  
+    <td> <label>Password</label>
+        </td>
+        <td>   
+    <mat-form-field appearance="legacy">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput placeholder="Password">
+    </mat-form-field>
+    </td>
+</tr>
+  <tr>  
+    <td>  <label>Confirm password</label></td>
+   <td> <mat-form-field appearance="legacy">
+      <mat-label>Confirm Password</mat-label>
+      <input formControlName="confirm_password" matInput placeholder="Confirm password">
+    </mat-form-field>
+    </td>
+</tr>
+  <tr>  
+    <td><label>Add users</label>
+        </td>
+        <td>   
+    <mat-form-field appearance="legacy">
+      <mat-label>Add users "," separated to your blockchain</mat-label>
+      <input formControlName="users" matInput placeholder="Add users">
+    </mat-form-field>
+    </td>
+</tr>
+  <tr>   
+    <td> <label>Organisation</label>
+        </td>
+        <td>  
+    <mat-form-field appearance="legacy">
+      <mat-label>Organisation primarily used for</mat-label>
+      <mat-select formControlName="organisation">
+        <mat-option *ngFor="let type of organisations" [value]="type">
+           {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </td>
+</tr>
+  <tr><td></td><td>   
+    <button type="submit" mat-raised-button style="background-color: var(--button-color);">Create Blockchain</button>
+  </td>
+  </tr>
+  </table>
+  </form>
+  </div>
+  

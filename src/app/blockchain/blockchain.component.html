@@ -1,0 +1,71 @@
+<div class="center">
+    <div *ngIf="bcConfig == null; else elseBlock">Block chain updating</div>
+   <ng-template #elseBlock>
+       <h2>Name: {{bcConfig.name}}</h2>
+       <h4>Id: {{bcConfig.id}}</h4>
+       <p>Created at: {{bcConfig.createdAt}}</p>
+       <p>Updated at: {{bcConfig.updatedAt}}</p>
+       <div class="blocks" *ngFor="let bc of bcConfig.blocks">   
+         <table style="border: 1px solid var(--light-text);" >
+          <tr><td>
+            <div>
+                Sender:
+            </div>
+          </td>
+        <td><div> {{bc.sender}}</div></td></tr>
+          <tr><td>
+            <div>
+                Receiver: 
+            </div>
+          </td>
+          <td><div>{{bc.receiver}}</div></td>
+        </tr>
+          <tr><td> <div>
+            Amount:
+        </div>
+        </td>
+        <td><div>{{bc.sending}}</div></td> 
+    </tr>
+        <tr><td>
+            <div>
+                Additional data: 
+            </div>
+        </td>
+        <td><div>{{bc.raw_data}}</div></td>
+    </tr>
+        <tr><td>
+            <div>
+                Golden None:
+            </div>
+        </td>
+        <td><div>{{bc.golden_nonce}}</div></td>
+    </tr>
+        <tr><td>
+            <div>
+                Previous hash: 
+            </div>
+        </td>
+        <td><div>{{bc.previous_hash}}</div></td>
+    </tr>
+        <tr><td> <div>
+            Block hash: 
+        </div></td>
+        <td><div>{{bc.hash}}</div></td>
+    </tr>
+   </table>
+   <img class="chain" style="margin-top: -30px; margin-bottom: -40px;" src="assets/img/chain.png">       
+    </div>
+</ng-template>
+<div id="buttons">
+    <div>  
+        <button routerLink="/home" mat-raised-button style="background-color: var(--button-color);">
+            Home</button>
+    </div>
+    <div>
+        <button routerLink="/block" mat-raised-button style="background-color: var(--button-color);">
+           Add blocks</button>
+    </div>
+</div>
+ </div>
+       
+  
